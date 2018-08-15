@@ -9,5 +9,8 @@
         <module name="many2many" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="many2many" target="1.5" />
+    </bytecodeTargetLevel>
   </component>
 </project>

@@ -2,26 +2,20 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Collection;
 
+@NamedNativeQuery(name = "getAllUsers" ,
+query = "select * from Man where name = :soosa ",
+        resultClass = Man.class
+)
+
+
+
+
 @Entity
 public class Man {
-    @Id
-    @GeneratedValue
+    @Id @GeneratedValue
     private int ssn;
 
-    @ManyToMany
-    @JoinTable(name = "Owner_vehicles",
-    joinColumns = @JoinColumn(name = "User_id"),
-            inverseJoinColumns = @JoinColumn(name = "Vehicle_Number")
-    )
-    private Collection<Vehicle> vehicles = new ArrayList<Vehicle>();
-
-    public Collection<Vehicle> getVehicles() {
-        return vehicles;
-    }
-
-    public void setVehicles(Collection<Vehicle> vehicles) {
-        this.vehicles = vehicles;
-    }
+    private String name;
 
     public int getSsn() {
         return ssn;
@@ -38,7 +32,5 @@ public class Man {
     public void setName(String name) {
         this.name = name;
     }
-
-    private String name;
 
 }
